@@ -1,0 +1,95 @@
+{
+	"variables": [],
+	"info": {
+		"name": "SalesForce.com OAuth Flow (staging) GENERIC",
+		"_postman_id": "77a33a66-56db-ceb5-9572-056c053ffc38",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "/sfdc/oauth/url (staging)",
+			"request": {
+				"url": {
+					"raw": "https://staging.cloud-elements.com/elements/api-v2/elements/sfdc/oauth/url?apiKey=YourSFDC-API-KEY-GOES-HERE-for-your-regisered-app&apiSecret=yourSFDC-API-SECRET-GOES-HERE&callbackUrl=https://staging.cloud-elements.com/elements/jsp/home.jsp",
+					"protocol": "https",
+					"host": [
+						"staging",
+						"cloud-elements",
+						"com"
+					],
+					"path": [
+						"elements",
+						"api-v2",
+						"elements",
+						"sfdc",
+						"oauth",
+						"url"
+					],
+					"query": [
+						{
+							"key": "apiKey",
+							"value": "YourSFDC-API-KEY-GOES-HERE-for-your-regisered-app",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "apiSecret",
+							"value": "yourSFDC-API-SECRET-GOES-HERE",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "callbackUrl",
+							"value": "https://staging.cloud-elements.com/elements/jsp/home.jsp",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "User <copy your user secret here>, Organization <copy your org secret here>",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "/instances (staging)",
+			"request": {
+				"url": "https://staging.cloud-elements.com/elements/api-v2/instances",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "User <copy your user secret here>, Organization <copy your org secret here>",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"element\": {\n    \"key\": \"sfdc\"\n  },\n  \"providerData\": {\n    \"code\": \"THis is the code that comes back from the first GET /sfdc/oauth/url call\"\n  },\n  \"configuration\": {\n    \"oauth.callback.url\": \"https://staging.cloud-elements.com/elements/jsp/home.jsp\",\n    \"oauth.api.key\": \"PUT Your API KEY here\",\n    \"oauth.api.secret\": \"put your API secret here\",\n    \"event.notification.enabled\": \"true\",\n    \"event.vendor.type\": \"polling\",\n\"event.objects\": \"Contact\",\n\"event.poller.refresh_interval\": \"1\"\n \n  },\n  \"tags\": [\n    \"sfdctag\"\n  ],\n  \"name\": \"DJHonan My Demo Instance2\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
