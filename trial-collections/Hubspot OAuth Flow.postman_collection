@@ -1,0 +1,187 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Hubspot OAuth Flow",
+		"_postman_id": "f61595d4-deac-a8ce-011f-635bb9117161",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "/hubspot/oauth/url",
+			"request": {
+				"url": {
+					"raw": "{{api-v2}}/elements/hubspot/oauth/url?apiKey={{hsm-key}}&apiSecret={{hsm-secret}}&callbackUrl={{callback-url}}",
+					"host": [
+						"{{api-v2}}"
+					],
+					"path": [
+						"elements",
+						"hubspot",
+						"oauth",
+						"url"
+					],
+					"query": [
+						{
+							"key": "apiKey",
+							"value": "{{hsm-key}}",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "apiSecret",
+							"value": "{{hsm-secret}}",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "callbackUrl",
+							"value": "{{callback-url}}",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "User {{user_secret}}, Organization {{organization_secret}}",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"element\": {\n    \"key\": \"sfdc\"\n  },\n  \"providerData\": {\n    \"code\": \"aPrxMZkm7lCkgfRp6r.wjav5NlOSAIaTQ3ULY98S_HLiY8PFroHLNyeFCqXshTbkAMt3lQiLJQ%3D%3D\"\n  },\n  \"configuration\": {\n    \"oauth.callback.url\": \"https://console.cloud-elements.com/elements/jsp/home.jsp\",\n    \"oauth.api.key\": \"3MVG9A2kN3Bn17huqpbZ.99EPdhIK6o1gB7E3Y42_swsBVklSkNNChnvIGTxb0GAzTUrZKrnMLbbazmLkeZrt\",\n    \"oauth.api.secret\": \"5996596135756415222\"\n  },\n  \"tags\": [\n    \"sfdctag\"\n  ],\n  \"name\": \"My Demo Instance\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "/instances",
+			"request": {
+				"url": "{{api-v2}}/instances",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "User {{user_secret}}, Organization {{organization_secret}}",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"element\": {\n    \"key\": \"hubspot\"\n  },\n  \"providerData\": {\n    \"code\": \"a0160138-67c4-410f-a55b-5723b038af45\"\n  },\n  \"configuration\": {\n    \"authentication.type\": \"oauth2\",\n    \"oauth.callback.url\": \"{{callback-url}}\",\n    \"oauth.api.key\": \"{{hsm-key}}\",\n    \"oauth.api.secret\": \"{{hsm-secret}}\",\n    \"create.bulk.properties\": \"false\",\n    \"filter.response.nulls\": true\n  },\n  \"tags\": [\n    \"Via API\"\n  ],\n  \"name\": \"David's Instance\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "/instances (events)",
+			"request": {
+				"url": "{{api-v2}}/instances",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "User {{user_secret}}, Organization {{organization_secret}}",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"element\": {\n    \"key\": \"hubspot\"\n  },\n  \"providerData\": {\n    \"code\": \"4c17deae-db2f-4f95-8ed5-8bbc867b3e01\"\n  },\n  \"configuration\": {\n    \"authentication.type\": \"oauth2\",\n    \"oauth.callback.url\": \"{{callback-url}}\",\n    \"oauth.api.key\": \"{{hsm-key}}\",\n    \"oauth.api.secret\": \"{{hsm-secret}}\",\n    \"create.bulk.properties\": \"false\",\n    \"filter.response.nulls\": true,\n    \"event.notification.enabled\": true,\n    \"event.vendor.type\": \"polling\",\n    \"event.poller.refresh_interval\": \"5\",\n    \"event.poller.configuration\":{\n      \"accounts\":{\n        \"url\":\"/hubs/crm/contacts?where=lastmodifieddate='${date}'\",\n        \"idField\":\"vid\",\n        \"filterByUpdatedDate\":true,\n        \"datesConfiguration\":{\n          \"updatedDateField\":\"properties.lastmodifieddate\",\n          \"updatedDateFormat\":\"milliseconds\",\n          \"createdDateField\":\"properties.createdate\",\n          \"createdDateFormat\":\"milliseconds\",\n          \"createdCheckTolerance\": 10\n        }\n      }\n    }\n  },\n  \"tags\": [\n    \"Cool Tag\"\n  ],\n  \"name\": \"David's Instance wEvents\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "/myContacts",
+			"request": {
+				"url": "{{api-v2}}/myContacts",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "User {{user_secret}}, Organization {{organization_secret}}, Element gs0Sw1FtwbDngWl9G8DkZH5M0081HArgnA89u4wcPmo=",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "/myContacts/{id}",
+			"request": {
+				"url": "{{api-v2}}/myContacts/52501",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "User {{user_secret}}, Organization {{organization_secret}}, Element gs0Sw1FtwbDngWl9G8DkZH5M0081HArgnA89u4wcPmo=",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "/myContacts",
+			"request": {
+				"url": "https://staging.cloud-elements.com/elements/api-v2/myContacts",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "User {{user_secret}}, Organization {{organization_secret}}, Element gs0Sw1FtwbDngWl9G8DkZH5M0081HArgnA89u4wcPmo=",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"lastName\": \"Glide\",\n        \"country\": \"US\",\n        \"firstName\": \"Street\",\n        \"city\": \"boulder\",\n        \"phone\": \"(303) 123-1234\",\n        \"street\": \"456 Elm Lane\",\n        \"postalCode\": \"80304\",\n        \"name\": \"Street Glide\",\n        \"company\": \"Harley\",\n        \"state\": \"CO\",\n        \"email\": \"streetglide@fake.com\"\n    }"
+				},
+				"description": "Post myContacts"
+			},
+			"response": []
+		}
+	]
+}
