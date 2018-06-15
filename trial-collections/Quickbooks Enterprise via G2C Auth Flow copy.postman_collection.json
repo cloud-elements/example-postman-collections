@@ -1,0 +1,157 @@
+{
+	"info": {
+		"_postman_id": "2d42668c-435b-a92c-89b5-50404a19cc86",
+		"name": "Quickbooks Enterprise via G2C Auth Flow copy",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "/instances (events)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "User {{user_secret}}, Organization {{organization_secret}}"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"QB Enterprise via API\",\n  \"tags\": [\"via api Call\"],\n  \"element\":{\n    \"key\":\"quickbooksonprem\"\n  },\n  \"configuration\": {\n    \"qb_edition\": \"us\",\n    \"filter.response.nulls\": \"true\",\n    \"event.notification.enabled\": true,\n    \"event.poller.refresh_interval\": 1,\n    \"event.poller.configuration\": \"\\n{\\n  \\\"bills\\\": {\\n    \\\"url\\\": \\\"/hubs/finance/bills?where=TimeModified >= '${date:yyyy-MM-dd'T'HH:mm:ssXXX}'\\\",\\n    \\\"idField\\\": \\\"TxnID\\\",\\n    \\\"datesConfiguration\\\": {\\n      \\\"updatedDateField\\\": \\\"TimeModified\\\",\\n      \\\"updatedDateFormat\\\": \\\"yyyy-MM-dd'T'HH:mm:ssXXX\\\",\\n      \\\"createdDateField\\\": \\\"TimeCreated\\\",\\n      \\\"createdDateFormat\\\": \\\"yyyy-MM-dd'T'HH:mm:ssXXX\\\"\\n    }\\n  },\\n  \\\"credit-memos\\\": {\\n    \\\"url\\\": \\\"/hubs/finance/credit-memos?where=TimeModified >= '${date:yyyy-MM-dd'T'HH:mm:ssXXX}'\\\",\\n    \\\"idField\\\": \\\"TxnID\\\",\\n    \\\"datesConfiguration\\\": {\\n      \\\"updatedDateField\\\": \\\"TimeModified\\\",\\n      \\\"updatedDateFormat\\\": \\\"yyyy-MM-dd'T'HH:mm:ssXXX\\\",\\n      \\\"createdDateField\\\": \\\"TimeCreated\\\",\\n      \\\"createdDateFormat\\\": \\\"yyyy-MM-dd'T'HH:mm:ssXXX\\\"\\n    }\\n  },\\n  \\\"item-receipts\\\": {\\n    \\\"url\\\": \\\"/hubs/finance/item-receipts?where=TimeModified >= '${date:yyyy-MM-dd'T'HH:mm:ssXXX}'\\\",\\n    \\\"idField\\\": \\\"TxnID\\\",\\n    \\\"datesConfiguration\\\": {\\n      \\\"updatedDateField\\\": \\\"TimeModified\\\",\\n      \\\"updatedDateFormat\\\": \\\"yyyy-MM-dd'T'HH:mm:ssXXX\\\",\\n      \\\"createdDateField\\\": \\\"TimeCreated\\\",\\n      \\\"createdDateFormat\\\": \\\"yyyy-MM-dd'T'HH:mm:ssXXX\\\"\\n    }\\n  },\\n  \\\"invoices\\\": {\\n    \\\"url\\\": \\\"/hubs/finance/invoices?where=TimeModified >= '${date:yyyy-MM-dd'T'HH:mm:ssXXX}'\\\",\\n    \\\"idField\\\": \\\"TxnID\\\",\\n    \\\"datesConfiguration\\\": {\\n      \\\"updatedDateField\\\": \\\"TimeModified\\\",\\n      \\\"updatedDateFormat\\\": \\\"yyyy-MM-dd'T'HH:mm:ssXXX\\\",\\n      \\\"createdDateField\\\": \\\"TimeCreated\\\",\\n      \\\"createdDateFormat\\\": \\\"yyyy-MM-dd'T'HH:mm:ssXXX\\\"\\n    }\\n  },\\n  \\\"journal-entries\\\": {\\n    \\\"url\\\": \\\"/hubs/finance/journal-entries?where=TimeModified >= '${date:yyyy-MM-dd'T'HH:mm:ssXXX}'\\\",\\n    \\\"idField\\\": \\\"TxnID\\\",\\n    \\\"datesConfiguration\\\": {\\n      \\\"updatedDateField\\\": \\\"TimeModified\\\",\\n      \\\"updatedDateFormat\\\": \\\"yyyy-MM-dd'T'HH:mm:ssXXX\\\",\\n      \\\"createdDateField\\\": \\\"TimeCreated\\\",\\n      \\\"createdDateFormat\\\": \\\"yyyy-MM-dd'T'HH:mm:ssXXX\\\"\\n    }\\n  },\\n  \\\"payments\\\": {\\n    \\\"url\\\": \\\"/hubs/finance/payments?where=TimeModified >= '${date:yyyy-MM-dd'T'HH:mm:ssXXX}'\\\",\\n    \\\"idField\\\": \\\"TxnID\\\",\\n    \\\"datesConfiguration\\\": {\\n      \\\"updatedDateField\\\": \\\"TimeModified\\\",\\n      \\\"updatedDateFormat\\\": \\\"yyyy-MM-dd'T'HH:mm:ssXXX\\\",\\n      \\\"createdDateField\\\": \\\"TimeCreated\\\",\\n      \\\"createdDateFormat\\\": \\\"yyyy-MM-dd'T'HH:mm:ssXXX\\\"\\n    }\\n  },\\n  \\\"sales-receipts\\\": {\\n    \\\"url\\\": \\\"/hubs/finance/sales-receipts?where=TimeModified >= '${date:yyyy-MM-dd'T'HH:mm:ssXXX}'\\\",\\n    \\\"idField\\\": \\\"TxnID\\\",\\n    \\\"datesConfiguration\\\": {\\n      \\\"updatedDateField\\\": \\\"TimeModified\\\",\\n      \\\"updatedDateFormat\\\": \\\"yyyy-MM-dd'T'HH:mm:ssXXX\\\",\\n      \\\"createdDateField\\\": \\\"TimeCreated\\\",\\n      \\\"createdDateFormat\\\": \\\"yyyy-MM-dd'T'HH:mm:ssXXX\\\"\\n    }\\n  },\\n  \\\"purchase-orders\\\": {\\n    \\\"url\\\": \\\"/hubs/finance/purchase-orders?where=TimeModified >= '${date:yyyy-MM-dd'T'HH:mm:ssXXX}'\\\",\\n    \\\"idField\\\": \\\"TxnID\\\",\\n    \\\"datesConfiguration\\\": {\\n      \\\"updatedDateField\\\": \\\"TimeModified\\\",\\n      \\\"updatedDateFormat\\\": \\\"yyyy-MM-dd'T'HH:mm:ssXXX\\\",\\n      \\\"createdDateField\\\": \\\"TimeCreated\\\",\\n      \\\"createdDateFormat\\\": \\\"yyyy-MM-dd'T'HH:mm:ssXXX\\\"\\n    }\\n  },\\n  \\\"sales-orders\\\": {\\n    \\\"url\\\": \\\"/hubs/finance/sales-orders?where=TimeModified >= '${date:yyyy-MM-dd'T'HH:mm:ssXXX}'\\\",\\n    \\\"idField\\\": \\\"TxnID\\\",\\n    \\\"datesConfiguration\\\": {\\n      \\\"updatedDateField\\\": \\\"TimeModified\\\",\\n      \\\"updatedDateFormat\\\": \\\"yyyy-MM-dd'T'HH:mm:ssXXX\\\",\\n      \\\"createdDateField\\\": \\\"TimeCreated\\\",\\n      \\\"createdDateFormat\\\": \\\"yyyy-MM-dd'T'HH:mm:ssXXX\\\"\\n    }\\n  },\\n  \\\"customers\\\": {\\n    \\\"url\\\": \\\"/hubs/finance/customers?where=TimeModified >= '${date:yyyy-MM-dd'T'HH:mm:ssXXX}'\\\",\\n    \\\"idField\\\": \\\"ListID\\\",\\n    \\\"datesConfiguration\\\": {\\n      \\\"updatedDateField\\\": \\\"TimeModified\\\",\\n      \\\"updatedDateFormat\\\": \\\"yyyy-MM-dd'T'HH:mm:ssXXX\\\",\\n      \\\"createdDateField\\\": \\\"TimeCreated\\\",\\n      \\\"createdDateFormat\\\": \\\"yyyy-MM-dd'T'HH:mm:ssXXX\\\"\\n    }\\n  },\\n  \\\"employees\\\": {\\n    \\\"url\\\": \\\"/hubs/finance/employees?where=TimeModified >= '${date:yyyy-MM-dd'T'HH:mm:ssXXX}'\\\",\\n    \\\"idField\\\": \\\"ListID\\\",\\n    \\\"datesConfiguration\\\": {\\n      \\\"updatedDateField\\\": \\\"TimeModified\\\",\\n      \\\"updatedDateFormat\\\": \\\"yyyy-MM-dd'T'HH:mm:ssXXX\\\",\\n      \\\"createdDateField\\\": \\\"TimeCreated\\\",\\n      \\\"createdDateFormat\\\": \\\"yyyy-MM-dd'T'HH:mm:ssXXX\\\"\\n    }\\n  },\\n  \\\"products\\\": {\\n    \\\"url\\\": \\\"/hubs/finance/products?where=TimeModified >= '${date:yyyy-MM-dd'T'HH:mm:ssXXX}'\\\",\\n    \\\"idField\\\": \\\"ListID\\\",\\n    \\\"datesConfiguration\\\": {\\n      \\\"updatedDateField\\\": \\\"TimeModified\\\",\\n      \\\"updatedDateFormat\\\": \\\"yyyy-MM-dd'T'HH:mm:ssXXX\\\",\\n      \\\"createdDateField\\\": \\\"TimeCreated\\\",\\n      \\\"createdDateFormat\\\": \\\"yyyy-MM-dd'T'HH:mm:ssXXX\\\"\\n    }\\n  },\\n  \\\"vendors\\\": {\\n    \\\"url\\\": \\\"/hubs/finance/vendors?where=TimeModified >= '${date:yyyy-MM-dd'T'HH:mm:ssXXX}'\\\",\\n    \\\"idField\\\": \\\"ListID\\\",\\n    \\\"datesConfiguration\\\": {\\n      \\\"updatedDateField\\\": \\\"TimeModified\\\",\\n      \\\"updatedDateFormat\\\": \\\"yyyy-MM-dd'T'HH:mm:ssXXX\\\",\\n      \\\"createdDateField\\\": \\\"TimeCreated\\\",\\n      \\\"createdDateFormat\\\": \\\"yyyy-MM-dd'T'HH:mm:ssXXX\\\"\\n    }\\n  }\\n}\",\n    \"event.vendor.type\": \"polling\",\n    \"app.name\": \"{{qbd-appname}}\",\n    \"host.ip\": \"{{qbd-hostip}}\"\n  }\n}"
+				},
+				"url": {
+					"raw": "{{api-v2}}/instances",
+					"host": [
+						"{{api-v2}}"
+					],
+					"path": [
+						"instances"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/myContacts/{id}",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "User {{user_secret}}, Organization {{organization_secret}}, Element bvGiDhKziILuPYCojhDe47OWXzxTB0uUSIk4Y1W4CV8="
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "{{api-v2}}/myContacts/80000002-1528843567",
+					"host": [
+						"{{api-v2}}"
+					],
+					"path": [
+						"myContacts",
+						"80000002-1528843567"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/myContacts",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "User {{user_secret}}, Organization {{organization_secret}}, Element OuuDTrX1/rj6a1Fm6Do2GJYjRZ0L1HYm7Yxt/2Jtcbc="
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "{{api-v2}}/myContacts/",
+					"host": [
+						"{{api-v2}}"
+					],
+					"path": [
+						"myContacts",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/instances",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "User {{user_secret}}, Organization {{organization_secret}}"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"element\": {\n    \"key\": \"quickbooksonprem\"\n  },\n  \"configuration\": {\n    \"filter.response.nulls\": \"true\",\n    \"app.name\": \"{{qbd-appname}}\",\n    \"host.ip\": \"{{qbd-hostip}}\"\n  },\n  \"tags\": [\n    \"via api Call\"\n  ],\n  \"name\": \"QBE Customer Via API Call\"\n}"
+				},
+				"url": {
+					"raw": "{{api-v2}}/instances",
+					"host": [
+						"{{api-v2}}"
+					],
+					"path": [
+						"instances"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/myContacts",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "User {{user_secret}}, Organization {{organization_secret}}, Element bvGiDhKziILuPYCojhDe47OWXzxTB0uUSIk4Y1W4CV8="
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"lastName\": \"Glide\",\n        \"country\": \"US\",\n        \"firstName\": \"Street\",\n        \"city\": \"boulder\",\n        \"phone\": \"(303) 123-1234\",\n        \"street\": \"456 Elm Lane\",\n        \"postalCode\": \"80304\",\n        \"name\": \"Street Glide\",\n        \"company\": \"Harley\",\n        \"state\": \"CO\",\n        \"email\": \"streetglide@fake.com\"\n    }"
+				},
+				"url": {
+					"raw": "{{api-v2}}/myContacts/12335",
+					"host": [
+						"{{api-v2}}"
+					],
+					"path": [
+						"myContacts",
+						"12335"
+					]
+				},
+				"description": "Post myContacts"
+			},
+			"response": []
+		}
+	]
+}

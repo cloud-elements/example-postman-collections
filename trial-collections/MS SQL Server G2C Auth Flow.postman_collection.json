@@ -1,0 +1,157 @@
+{
+	"info": {
+		"_postman_id": "ed41a83e-20a6-7670-26b6-146e4d936ca6",
+		"name": "MS SQL Server G2C Auth Flow",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "/instances",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "User {{user_secret}}, Organization {{organization_secret}}"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"element\": {\n    \"key\": \"sqlserver\"\n  },\n  \"configuration\" : {\n      \"db.host\": \"{{mssqls-dbhost}}\",\n      \"db.name\": \"{{mssqls-dbname}}\",\n      \"username\": \"{{mssqls-uname}}\",\n      \"password\":  \"{{mssqls-pwd}}\",\n      \"db.schema\": \"{{mssqls-dbschema}}\"\n  },\n  \"tags\": [\"Tagster\"],\n  \"name\": \"MS SQL via API\"\n}"
+				},
+				"url": {
+					"raw": "{{api-v2}}/instances",
+					"host": [
+						"{{api-v2}}"
+					],
+					"path": [
+						"instances"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/instances (events)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "User {{user_secret}}, Organization {{organization_secret}}"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"Events Example\",\n  \"element\":{\n    \"key\":\"sqlserver\"\n  },\n  \"tags\": [\"Tagster\"],\n  \"configuration\": {\n    \"filter.response.nulls\": \"true\",\n    \"event.notification.enabled\": true,\n    \"event.poller.refresh_interval\": 1,\n    \"event.vendor.type\": \"polling\",\n    \"event.poller.configuration\": \"{\\n  \\\"people\\\": {\\n    \\\"url\\\": \\\"/hubs/db/people?where=updatedDate>='${gmtDate:yyyy-MM-dd'T'HH:mm:ssXXX}'\\\",\\n    \\\"idField\\\": \\\"people\\\",\\n    \\\"datesConfiguration\\\": {\\n      \\\"updatedDateField\\\": \\\"modifiedDate\\\",\\n      \\\"updatedDateFormat\\\": \\\"yyyy-MM-dd'T'HH:mm:ssXXX\\\",\\n      \\\"createdDateField\\\": \\\"updatedDate\\\",\\n      \\\"createdDateFormat\\\": \\\"yyyy-MM-dd'T'HH:mm:ssXXX\\\"\\n    }\\n  }\\n}\",\n      \"db.host\": \"{{mssqls-dbhost}}\",\n      \"db.name\": \"{{mssqls-dbname}}\",\n      \"username\": \"{{mssqls-uname}}\",\n      \"password\":  \"{{mssqls-pwd}}\",\n      \"db.schema\": \"{{mssqls-dbschema}}\",\n    \"event.notification.callback.url\": \"http://mycoolapp.com\"\n  }\n}"
+				},
+				"url": {
+					"raw": "{{api-v2}}/instances",
+					"host": [
+						"{{api-v2}}"
+					],
+					"path": [
+						"instances"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/myContacts",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "User {{user_secret}}, Organization {{organization_secret}}, Element bvGiDhKziILuPYCojhDe47OWXzxTB0uUSIk4Y1W4CV8="
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "{{api-v2}}/myContacts/",
+					"host": [
+						"{{api-v2}}"
+					],
+					"path": [
+						"myContacts",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/myContacts/{id}",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "User {{user_secret}}, Organization {{organization_secret}}, Element 0UYvlDi1T5BrYcQvOJSd81Y1nx3ZwvlYzuJUvVsuEdc="
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "{{api-v2}}/myContacts/1",
+					"host": [
+						"{{api-v2}}"
+					],
+					"path": [
+						"myContacts",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/myContacts",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "User {{user_secret}}, Organization {{organization_secret}}, Element bvGiDhKziILuPYCojhDe47OWXzxTB0uUSIk4Y1W4CV8="
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"lastName\": \"Glide\",\n        \"country\": \"US\",\n        \"firstName\": \"Street\",\n        \"city\": \"boulder\",\n        \"phone\": \"(303) 123-1234\",\n        \"street\": \"456 Elm Lane\",\n        \"postalCode\": \"80304\",\n        \"name\": \"Street Glide\",\n        \"company\": \"Harley\",\n        \"state\": \"CO\",\n        \"email\": \"streetglide@fake.com\"\n    }"
+				},
+				"url": {
+					"raw": "{{api-v2}}/myContacts/",
+					"host": [
+						"{{api-v2}}"
+					],
+					"path": [
+						"myContacts",
+						""
+					]
+				},
+				"description": "Post myContacts"
+			},
+			"response": []
+		}
+	]
+}

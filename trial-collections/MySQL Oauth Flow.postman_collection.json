@@ -1,0 +1,139 @@
+{
+	"info": {
+		"_postman_id": "deee2b26-8a1e-02a3-a69b-c205ea73904f",
+		"name": "MySQL Oauth Flow",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "/instances",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "User {{user_secret}}, Organization {{organization_secret}}"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"element\": {\n    \"key\": \"mysql\"\n  },\n  \"configuration\" : {\n      \"db.host\": \"{{msql-host}}\",\n      \"db.name\": \"{{msql-name}}\",\n      \"username\": \"{{msql-uname}}\",\n      \"password\":  \"{{msql-pwd}}\"\n  },\n  \"tags\": [\n    \"Via API\"\n  ],\n  \"name\": \"Instance via API\"\n}"
+				},
+				"url": {
+					"raw": "{{api-v2}}/elements/mysql/instances",
+					"host": [
+						"{{api-v2}}"
+					],
+					"path": [
+						"elements",
+						"mysql",
+						"instances"
+					]
+				},
+				"description": "Create Instance"
+			},
+			"response": []
+		},
+		{
+			"name": "/myContacts",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "User {{user_secret}}, Organization {{organization_secret}}, Element sct8TdeAj4q9m7+hDrKZMQsccd7QFv83UcOhpf5ZTnM="
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "{{api-v2}}/myContacts",
+					"host": [
+						"{{api-v2}}"
+					],
+					"path": [
+						"myContacts"
+					]
+				},
+				"description": "Get myContacts"
+			},
+			"response": []
+		},
+		{
+			"name": "/myContacts (page)",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "User {{user_secret}}, Organization {{organization_secret}}, Element sct8TdeAj4q9m7+hDrKZMQsccd7QFv83UcOhpf5ZTnM="
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "{{api-v2}}/myContacts?pageSize=10&page=9",
+					"host": [
+						"{{api-v2}}"
+					],
+					"path": [
+						"myContacts"
+					],
+					"query": [
+						{
+							"key": "pageSize",
+							"value": "10"
+						},
+						{
+							"key": "page",
+							"value": "9"
+						}
+					]
+				},
+				"description": "Get myContacts"
+			},
+			"response": []
+		},
+		{
+			"name": "/myContacts",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "User {{user_secret}}, Organization {{organization_secret}}, Element 1MaDxTqyOlA3CpiWp5OapTpv7fk6VGDyS9ixjLnQWk8="
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"lastName\": \"Glide2\",\n        \"country\": \"US\",\n        \"firstName\": \"Street\",\n        \"city\": \"boulder\",\n        \"phone\": \"(303) 123-1234\",\n        \"street\": \"456 Elm Lane\",\n        \"postalCode\": \"80304\",\n        \"name\": \"Street Glide\",\n        \"company\": \"Harley\",\n        \"state\": \"CO\",\n        \"email\": \"streetglide2@fake.com\"\n    }"
+				},
+				"url": {
+					"raw": "{{api-v2}}/myContacts",
+					"host": [
+						"{{api-v2}}"
+					],
+					"path": [
+						"myContacts"
+					]
+				},
+				"description": "Post myContacts"
+			},
+			"response": []
+		}
+	]
+}
