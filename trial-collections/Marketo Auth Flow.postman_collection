@@ -1,0 +1,97 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Marketo Auth Flow",
+		"_postman_id": "de70e845-84d2-b000-7537-3e0c65640ba7",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "/instances (w events)",
+			"request": {
+				"url": "{{api-v2}}/instances",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "User {{user_secret}}, Organization {{organization_secret}}",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"element\": {\n        \"key\": \"marketo\"\n      },\n    \"providerData\": {\n        \"code\": \"\"\n      },\n    \"configuration\": {\n        \"oauth.api.key\": \"{{mkto-key}}\",\n        \"oauth.api.secret\": \"{{mkto-secret}}\",\n        \"marketo.identity.url\": \"{{mkto-idurl}}\",\n        \"base.url\": \"{{mkto-baseurl}}\",\n        \"filter.response.nulls\": \"true\",\n        \"event.notification.enabled\": true,\n        \"event.poller.refresh_interval\": 1,\n        \"event.vendor.type\": \"polling\"\n      },\n    \"tags\": [\n      \"Events for Leads Enabled\"\n    ],\n      \"name\": \"Marketo API Auth with Events\"\n}"
+				},
+				"description": "Create Instance"
+			},
+			"response": []
+		},
+		{
+			"name": "/contacts?where=",
+			"request": {
+				"url": {
+					"raw": "{{api-v2}}/contacts?where=id%3D'430578'",
+					"host": [
+						"{{api-v2}}"
+					],
+					"path": [
+						"contacts"
+					],
+					"query": [
+						{
+							"key": "where",
+							"value": "id%3D'430578'",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "User {{user_secret}}, Organization {{organization_secret}}, Element i2mKz8yqp7UVSKN4SefBm5PM+cV85h56Bdw6UNuBBG4=",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": "Get myContacts"
+			},
+			"response": []
+		},
+		{
+			"name": "/myLeads2/{id}",
+			"request": {
+				"url": "{{api-v2}}/myLeads2/430578",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "User {{user_secret}}, Organization {{organization_secret}}, Element RzV5p3IidEOcUw2OPVqNkp6IMg5qh5OP5jhv47VO2Co=",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": "Get myContacts"
+			},
+			"response": []
+		}
+	]
+}

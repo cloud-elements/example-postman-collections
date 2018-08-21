@@ -1,0 +1,167 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Constant Contact OAuth Flow",
+		"_postman_id": "98dca059-0fc1-5b60-cfdb-b4a4079bb852",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "/constantcontact/oauth/url",
+			"request": {
+				"url": {
+					"raw": "{{api-v2}}/elements/constantcontact/oauth/url?apiKey={{cc-key}}&apiSecret={{cc-secret}}&callbackUrl={{callback-url}}",
+					"host": [
+						"{{api-v2}}"
+					],
+					"path": [
+						"elements",
+						"constantcontact",
+						"oauth",
+						"url"
+					],
+					"query": [
+						{
+							"key": "apiKey",
+							"value": "{{cc-key}}",
+							"equals": true,
+							"description": "David's account"
+						},
+						{
+							"key": "apiSecret",
+							"value": "{{cc-secret}}",
+							"equals": true,
+							"description": "David's account"
+						},
+						{
+							"key": "callbackUrl",
+							"value": "{{callback-url}}",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "User {{user_secret}}, Organization {{organization_secret}}",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "/instances (events)",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"postman.setEnvironmentVariable(\"variable_key\", \"variable_value\");"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "{{api-v2}}/instances",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "User {{user_secret}}, Organization {{organization_secret}}",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"element\":{\n    \"key\":\"constantcontact\"\n  },\n  \"providerData\": {\n    \"code\": \"4M5muwymPWkqRlcWbGAZt9dkw29\"\n  },\n  \"configuration\": {\n    \"newUser\": \"false\",\n     \"oauth.callback.url\": \"{{callback-url}}\",\n    \"oauth.api.key\": \"{{cc-key}}\",\n    \"oauth.api.secret\": \"{{cc-secret}}\",\n    \"filter.response.nulls\": \"true\",\n    \"event.vendor.type\": \"polling\",\n    \"event.poller.refresh_interval\": 1,\n    \"event.notification.enabled\": true,\n    \"event.poller.configuration\": \"{\\\"contacts\\\":{\\\"url\\\":\\\"/hubs/marketing/contacts?where=modified_since='${gmtDate:yyyy-MM-dd'T'HH:mm:ss'Z'}'\\\",\\\"idField\\\":\\\"id\\\",\\\"datesConfiguration\\\":{\\\"updatedDateField\\\":\\\"modified_date\\\",\\\"updatedDateFormat\\\":\\\"yyyy-MM-dd'T'HH:mm:ss'Z'\\\",\\\"createdDateField\\\":\\\"created_date\\\",\\\"createdDateFormat\\\":\\\"yyyy-MM-dd'T'HH:mm:ss'Z'\\\"}}}\"\n  },\n  \"name\":\"Constant Contact Instance via API w Events\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "/myContacts",
+			"request": {
+				"url": "{{api-v2}}/myContacts",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "User {{user_secret}}, Organization {{organization_secret}}, Element QMH4tbwHDIAc1otymRAqUaUaX5a8fVR1Y4K6vnWW634=",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": "Get myContacts"
+			},
+			"response": []
+		},
+		{
+			"name": "/contacts",
+			"request": {
+				"url": "{{api-v2}}/contacts",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "User {{user_secret}}, Organization {{organization_secret}}, Element QMH4tbwHDIAc1otymRAqUaUaX5a8fVR1Y4K6vnWW634=",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": "Get myContacts"
+			},
+			"response": []
+		},
+		{
+			"name": "/myContacts/{id}",
+			"request": {
+				"url": "{{api-v2}}/myContacts/51",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "User {{user_secret}}, Organization {{organization_secret}}, Element TTACpEevPSOJGaiSJSkTT3IqCvDexVjwO74N3/Q1HM0=",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": "Get myContacts"
+			},
+			"response": []
+		}
+	]
+}

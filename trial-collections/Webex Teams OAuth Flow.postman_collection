@@ -1,0 +1,123 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Webex Teams OAuth Flow",
+		"_postman_id": "1c7d4478-0ca2-6b7c-64e4-ab198304e737",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "/webex/oauth/url",
+			"request": {
+				"url": {
+					"raw": "{{api-v2}}/elements/ciscospark/oauth/url?apiKey={{spark-key}}&apiSecret={{spark-secret}}&callbackUrl={{callback-url}}",
+					"host": [
+						"{{api-v2}}"
+					],
+					"path": [
+						"elements",
+						"ciscospark",
+						"oauth",
+						"url"
+					],
+					"query": [
+						{
+							"key": "apiKey",
+							"value": "{{spark-key}}",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "apiSecret",
+							"value": "{{spark-secret}}",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "callbackUrl",
+							"value": "{{callback-url}}",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "User {{user_secret}}, Organization {{organization_secret}}",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"element\": {\n    \"key\": \"sfdc\"\n  },\n  \"providerData\": {\n    \"code\": \"aPrxMZkm7lCkgfRp6r.wjav5NlOSAIaTQ3ULY98S_HLiY8PFroHLNyeFCqXshTbkAMt3lQiLJQ%3D%3D\"\n  },\n  \"configuration\": {\n    \"oauth.callback.url\": \"https://console.cloud-elements.com/elements/jsp/home.jsp\",\n    \"oauth.api.key\": \"3MVG9A2kN3Bn17huqpbZ.99EPdhIK6o1gB7E3Y42_swsBVklSkNNChnvIGTxb0GAzTUrZKrnMLbbazmLkeZrt\",\n    \"oauth.api.secret\": \"5996596135756415222\"\n  },\n  \"tags\": [\n    \"sfdctag\"\n  ],\n  \"name\": \"My Demo Instance\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "/instances",
+			"request": {
+				"url": "{{api-v2}}/instances",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "User {{user_secret}}, Organization {{organization_secret}}",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"element\": {\n    \"key\": \"ciscospark\"\n  },\n  \"providerData\": {\n    \"code\": \"ZTRlOTBmNWMtYjJhMC00OWU2LWEwZjgtNTk0NDhhZTE0ODc4MmZiYTJlOGYtOTUx\"\n  },\n  \"configuration\": {\n    \"oauth.api.key\": \"{{spark-key}}\",\n    \"oauth.api.secret\": \"{{spark-secret}}\",\n    \"oauth.callback.url\": \"{{callback-url}}\"\n  },\n  \"tags\": [\n    \"Tag\"\n  ],\n  \"name\": \"Instance via API\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "POST /channels/{id}/messages",
+			"request": {
+				"url": "{{api-v2}}/channels/{{spark-channel}}/messages",
+				"method": "POST",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "User {{user_secret}}, Organization {{organization_secret}}, Element 9zO3mvQUT1JvoD1j0U6XCdPCSnGbXggO0kGqx4d4CzI=",
+						"description": ""
+					},
+					{
+						"key": "content-type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \"text\": \"Message goes here\"}"
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}

@@ -1,0 +1,123 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Slack OAuth Flow",
+		"_postman_id": "4ddd5893-6178-6f62-81a2-3bce5a559e74",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "/slack/oauth/url",
+			"request": {
+				"url": {
+					"raw": "{{api-v2}}/elements/slack/oauth/url?apiKey={{slack-key}}&apiSecret={{slack-secret}}&callbackUrl={{callback-url}}",
+					"host": [
+						"{{api-v2}}"
+					],
+					"path": [
+						"elements",
+						"slack",
+						"oauth",
+						"url"
+					],
+					"query": [
+						{
+							"key": "apiKey",
+							"value": "{{slack-key}}",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "apiSecret",
+							"value": "{{slack-secret}}",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "callbackUrl",
+							"value": "{{callback-url}}",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "User {{user_secret}}, Organization {{organization_secret}}",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"element\": {\n    \"key\": \"sfdc\"\n  },\n  \"providerData\": {\n    \"code\": \"aPrxMZkm7lCkgfRp6r.wjav5NlOSAIaTQ3ULY98S_HLiY8PFroHLNyeFCqXshTbkAMt3lQiLJQ%3D%3D\"\n  },\n  \"configuration\": {\n    \"oauth.callback.url\": \"https://console.cloud-elements.com/elements/jsp/home.jsp\",\n    \"oauth.api.key\": \"3MVG9A2kN3Bn17huqpbZ.99EPdhIK6o1gB7E3Y42_swsBVklSkNNChnvIGTxb0GAzTUrZKrnMLbbazmLkeZrt\",\n    \"oauth.api.secret\": \"5996596135756415222\"\n  },\n  \"tags\": [\n    \"sfdctag\"\n  ],\n  \"name\": \"My Demo Instance\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "/instances",
+			"request": {
+				"url": "{{api-v2}}/instances",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "User {{user_secret}}, Organization {{organization_secret}}",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"element\": {\n    \"key\": \"slack\"\n  },\n  \"providerData\": {\n    \"code\": \"360419282836.420717263458.9e35ea570ef4e0bf66cec47760fed46eeba91124318b231f80d3970c49666f8c\"\n  },\n  \"configuration\": {\n    \"oauth.api.key\": \"{{slack-key}}\",\n    \"oauth.api.secret\": \"{{slack-secret}}\",\n    \"oauth.callback.url\": \"{{callback-url}}\",\n    \"oauth.scope\": \"mpim:write, mpim:history, mpim:read, usergroups:write, usergroups:read, im:read, im:write, users:write, users:read, users:read.email, users.profile:read, users.profile:write, chat:write:user, search:read, files:read, files:write:user, channels:read, channels:write, channels:history, groups:read, groups:write, groups:history, im:history\",\n    \"filter.response.nulls\": \"true\"\n},\n  \"tags\": [\n    \"Via API\"\n  ],\n  \"name\": \"David's Instance\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "POST /channels/{id}/messages",
+			"request": {
+				"url": "{{api-v2}}/channels/{{slack-channel}}/messages",
+				"method": "POST",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "User {{user_secret}}, Organization {{organization_secret}}, Element 6qJuvNPxD+xyBTxCMv3OWkjhFA/GZNcqabKilvxKdm4=",
+						"description": ""
+					},
+					{
+						"key": "content-type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \"text\": \"my message11\"}"
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}

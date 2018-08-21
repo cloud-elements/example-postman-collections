@@ -1,0 +1,102 @@
+{
+	"variables": [],
+	"info": {
+		"name": "SugarCRM Auth Flow",
+		"_postman_id": "fc3377a4-8176-290d-52c7-a30bee9d373b",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "/instances (w events)",
+			"request": {
+				"url": "{{api-v2}}/elements/sugarcrmv2/instances",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "User {{user_secret}}, Organization {{organization_secret}}",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"element\": {\n    \"key\": \"sugarcrmv2\"\n  },\n   \"configuration\": {\n       \"oauth.api.key\": \"{{sugar-key}}\",\n       \"oauth.api.secret\": \"{{sugar-secret}}\",\n       \"oauth.callback.url\": \"{{sugar-callback}}\",\n       \"site.url\": \"{{sugar-url}}\",\n       \"username\": \"{{sugar-uname}}\",\n       \"password\": \"{{sugar-pw}}\",\n      \"event.vendor.type\": \"polling\",\n      \"filter.response.nulls\": \"true\",\n      \"event.notification.enabled\": true,\n      \"event.poller.configuration\": \"{\\\"opportunities\\\":{\\\"url\\\":\\\"/hubs/crm/opportunities?where=date_modified>'${date:yyyy-MM-dd'T'HH:mm:ssXXX}'\\\",\\\"idField\\\":\\\"id\\\",\\\"datesConfiguration\\\":{\\\"updatedDateField\\\":\\\"date_modified\\\",\\\"updatedDateFormat\\\":\\\"yyyy-MM-dd'T'HH:mm:ssXXX\\\",\\\"createdDateField\\\":\\\"date_entered\\\",\\\"createdDateFormat\\\":\\\"yyyy-MM-dd'T'HH:mm:ssXXX\\\"}}}\",\n      \"event.poller.refresh_interval\": 1\n  },\n  \"tags\": [\n    \"Via API\"\n  ],\n  \"name\": \"Instance via API with Event for Opportunity\"\n}"
+				},
+				"description": "Create Instance"
+			},
+			"response": []
+		},
+		{
+			"name": "/opportunities",
+			"request": {
+				"url": "{{api-v2}}/opportunities",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "User {{user_secret}}, Organization {{organization_secret}}, Element hIjcpFG8RqoeYrJswxrFlrvYTiNyxQYEBRhwFiS+Hws=",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": "Get myContacts"
+			},
+			"response": []
+		},
+		{
+			"name": "/myOpportunities2",
+			"request": {
+				"url": "{{api-v2}}/myOpportunities2",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "User {{user_secret}}, Organization {{organization_secret}}, Element hIjcpFG8RqoeYrJswxrFlrvYTiNyxQYEBRhwFiS+Hws=",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": "Get myContacts"
+			},
+			"response": []
+		},
+		{
+			"name": "/myOpportunities2/{id}",
+			"request": {
+				"url": "{{api-v2}}/myOpportunities2/390c0c3c-86cf-11e8-8b51-0273927739c9",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "User {{user_secret}}, Organization {{organization_secret}}, Element hIjcpFG8RqoeYrJswxrFlrvYTiNyxQYEBRhwFiS+Hws=",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": "Get myContacts"
+			},
+			"response": []
+		}
+	]
+}

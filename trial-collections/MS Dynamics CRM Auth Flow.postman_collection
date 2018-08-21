@@ -1,0 +1,102 @@
+{
+	"variables": [],
+	"info": {
+		"name": "MS Dynamics CRM Auth Flow",
+		"_postman_id": "1a9ae8b9-3c65-1161-fa78-dcffb93c15dd",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "/instances (w events)",
+			"request": {
+				"url": "{{api-v2}}/instances",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "User {{user_secret}}, Organization {{organization_secret}}",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"element\": {\n    \"key\": \"dynamicscrmadfs\"\n  },\n  \"configuration\": {\n    \"dynamics.tenant\": \"{{msd-tenant}}\",\n    \"user.username\": \"{{msd-uname}}\",\n    \"user.password\": \"{{msd-pw}}\",\n    \"authentication.type\": \"custom\",\n    \"event.vendor.type\": \"polling\",\n    \"filter.response.nulls\": \"true\",\n    \"event.notification.enabled\": true,\n    \"event.poller.configuration\": \"{\\\"opportunities\\\":{\\\"url\\\":\\\"/hubs/crm/opportunities?where=fetchChanges='true'\\\",\\\"idField\\\":\\\"id\\\",\\\"datesConfiguration\\\":{\\\"updatedDateField\\\":\\\"attributes.modifiedon\\\",\\\"updatedDateFormat\\\":\\\"milliseconds\\\",\\\"createdDateField\\\":\\\"attributes.createdon\\\",\\\"createdDateFormat\\\":\\\"milliseconds\\\"}}}\",\n    \"event.poller.refresh_interval\": 1\n  },\n  \"tags\": [\n    \"Huge Customer\"\n  ],\n  \"name\": \"MS Dynamics via API w Events for Opps\"\n}"
+				},
+				"description": "Create Instance"
+			},
+			"response": []
+		},
+		{
+			"name": "/opportunities",
+			"request": {
+				"url": "{{api-v2}}/opportunities",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "User {{user_secret}}, Organization {{organization_secret}}, Element hIjcpFG8RqoeYrJswxrFlrvYTiNyxQYEBRhwFiS+Hws=",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": "Get myContacts"
+			},
+			"response": []
+		},
+		{
+			"name": "/myOpportunities2",
+			"request": {
+				"url": "{{api-v2}}/myOpportunities2",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "User {{user_secret}}, Organization {{organization_secret}}, Element hIjcpFG8RqoeYrJswxrFlrvYTiNyxQYEBRhwFiS+Hws=",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": "Get myContacts"
+			},
+			"response": []
+		},
+		{
+			"name": "/myOpportunities2/{id}",
+			"request": {
+				"url": "{{api-v2}}/myOpportunities2/390c0c3c-86cf-11e8-8b51-0273927739c9",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "User {{user_secret}}, Organization {{organization_secret}}, Element hIjcpFG8RqoeYrJswxrFlrvYTiNyxQYEBRhwFiS+Hws=",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": "Get myContacts"
+			},
+			"response": []
+		}
+	]
+}
