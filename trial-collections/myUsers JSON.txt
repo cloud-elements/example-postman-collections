@@ -1,0 +1,14 @@
+{
+  "objectName": "myUsers",
+  "fields": [
+    {
+      "type": "string",
+      "path": "name"
+    },
+    {
+      "type": "string",
+      "path": "id"
+    }
+  ],
+  "level": "organization"
+}

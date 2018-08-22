@@ -1,0 +1,50 @@
+{
+  "objectName": "myOpportunities2",
+  "fields": [
+    {
+      "type": "string",
+      "path": "closeDate"
+    },
+    {
+      "type": "string",
+      "path": "accountId"
+    },
+    {
+      "type": "string",
+      "path": "amount"
+    },
+    {
+      "type": "string",
+      "path": "createdDate"
+    },
+    {
+      "type": "string",
+      "path": "stageName"
+    },
+    {
+      "type": "string",
+      "path": "probability"
+    },
+    {
+      "type": "string",
+      "path": "name"
+    },
+    {
+      "type": "string",
+      "path": "description"
+    },
+    {
+      "type": "string",
+      "path": "id"
+    },
+    {
+      "type": "string",
+      "path": "ownerId"
+    },
+    {
+      "type": "string",
+      "path": "type"
+    }
+  ],
+  "level": "organization"
+}

@@ -1,0 +1,62 @@
+{
+  "objectName": "myLeads2",
+  "fields": [
+    {
+      "type": "string",
+      "path": "zip"
+    },
+    {
+      "type": "string",
+      "path": "country"
+    },
+    {
+      "type": "string",
+      "path": "lastName"
+    },
+    {
+      "type": "string",
+      "path": "street3"
+    },
+    {
+      "type": "string",
+      "path": "city"
+    },
+    {
+      "type": "string",
+      "path": "title"
+    },
+    {
+      "type": "string",
+      "path": "firstName"
+    },
+    {
+      "type": "string",
+      "path": "phone"
+    },
+    {
+      "type": "string",
+      "path": "company"
+    },
+    {
+      "type": "string",
+      "path": "street1"
+    },
+    {
+      "type": "string",
+      "path": "id"
+    },
+    {
+      "type": "string",
+      "path": "state"
+    },
+    {
+      "type": "string",
+      "path": "street2"
+    },
+    {
+      "type": "string",
+      "path": "email"
+    }
+  ],
+  "level": "organization"
+}
