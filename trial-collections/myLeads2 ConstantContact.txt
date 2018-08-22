@@ -1,0 +1,110 @@
+{
+  "level": "organization",
+  "elementId": 6342,
+  "objectName": "myLeads2",
+  "vendorName": "contacts",
+  "startDate": "2018-08-13 18:53:14.237438",
+  "fields": [
+    {
+      "type": "string",
+      "path": "city",
+      "level": "organization",
+      "vendorPath": "addresses[0].city"
+    },
+    {
+      "type": "string",
+      "path": "company",
+      "level": "organization",
+      "vendorPath": "company_name"
+    },
+    {
+      "type": "string",
+      "path": "email",
+      "level": "organization",
+      "vendorPath": "addresses[0].country_code"
+    },
+    {
+      "type": "string",
+      "path": "firstName",
+      "level": "organization",
+      "vendorPath": "first_name"
+    },
+    {
+      "type": "string",
+      "path": "id",
+      "level": "organization",
+      "vendorPath": "id",
+      "vendorType": "string",
+      "configuration": [
+        {
+          "type": "passThrough",
+          "properties": {
+            "toVendor": false,
+            "fromVendor": true
+          }
+        }
+      ]
+    },
+    {
+      "type": "string",
+      "path": "lastName",
+      "level": "organization",
+      "vendorPath": "last_name"
+    },
+    {
+      "type": "string",
+      "path": "phone",
+      "level": "organization",
+      "vendorPath": "work_phone"
+    },
+    {
+      "type": "string",
+      "path": "state",
+      "level": "organization",
+      "vendorPath": "addresses[0].state"
+    },
+    {
+      "type": "string",
+      "path": "street1",
+      "level": "organization",
+      "vendorPath": "addresses[0].line1"
+    },
+    {
+      "type": "string",
+      "path": "street2",
+      "level": "organization",
+      "vendorPath": "addresses[0].line2"
+    },
+    {
+      "type": "string",
+      "path": "street3",
+      "level": "organization",
+      "vendorPath": "addresses[0].line3"
+    },
+    {
+      "type": "string",
+      "path": "title",
+      "level": "organization",
+      "vendorPath": "job_title"
+    },
+    {
+      "type": "string",
+      "path": "zip",
+      "level": "organization",
+      "vendorPath": "addresses[0].postal_code"
+    }
+  ],
+  "configuration": [
+    {
+      "type": "passThrough",
+      "properties": {
+        "fromVendor": false,
+        "toVendor": false
+      }
+    },
+    {
+      "type": "inherit"
+    }
+  ],
+  "isLegacy": false
+}

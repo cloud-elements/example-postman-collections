@@ -1,0 +1,101 @@
+{
+  "level": "organization",
+  "elementId": 23,
+  "objectName": "myOpportunities2",
+  "vendorName": "Opportunity",
+  "startDate": "2018-07-31 17:46:29.605497",
+  "fields": [
+    {
+      "type": "string",
+      "path": "accountId",
+      "level": "organization",
+      "vendorPath": "AccountId"
+    },
+    {
+      "type": "string",
+      "path": "amount",
+      "level": "organization",
+      "vendorPath": "Amount"
+    },
+    {
+      "type": "string",
+      "path": "closeDate",
+      "level": "organization",
+      "vendorPath": "CloseDate"
+    },
+    {
+      "type": "string",
+      "path": "createdDate",
+      "level": "organization",
+      "vendorPath": "CreatedDate"
+    },
+    {
+      "type": "string",
+      "path": "description",
+      "level": "organization",
+      "vendorPath": "Description"
+    },
+    {
+      "type": "string",
+      "path": "id",
+      "level": "organization",
+      "vendorPath": "Id",
+      "vendorType": "string",
+      "configuration": [
+        {
+          "type": "passThrough",
+          "properties": {
+            "toVendor": false,
+            "fromVendor": true
+          }
+        }
+      ]
+    },
+    {
+      "type": "string",
+      "path": "name",
+      "level": "organization",
+      "vendorPath": "Name"
+    },
+    {
+      "type": "string",
+      "path": "ownerId",
+      "level": "organization",
+      "vendorPath": "OwnerId"
+    },
+    {
+      "type": "string",
+      "path": "probability",
+      "level": "organization",
+      "vendorPath": "Probability"
+    },
+    {
+      "type": "string",
+      "path": "stageName",
+      "level": "organization",
+      "vendorPath": "StageName"
+    },
+    {
+      "type": "string",
+      "path": "type",
+      "level": "organization",
+      "vendorPath": "Type"
+    }
+  ],
+  "configuration": [
+    {
+      "type": "addToDocumentation"
+    },
+    {
+      "type": "passThrough",
+      "properties": {
+        "fromVendor": false,
+        "toVendor": false
+      }
+    },
+    {
+      "type": "inherit"
+    }
+  ],
+  "isLegacy": false
+}

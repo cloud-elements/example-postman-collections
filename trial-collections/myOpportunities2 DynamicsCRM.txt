@@ -1,0 +1,100 @@
+{
+  "level": "organization",
+  "elementId": 361,
+  "objectName": "myOpportunities2",
+  "vendorName": "opportunity",
+  "startDate": "2018-08-13 20:43:13.371802",
+  "fields": [
+    {
+      "type": "string",
+      "path": "accountId",
+      "level": "organization",
+      "vendorPath": "attributes.accountid"
+    },
+    {
+      "type": "string",
+      "path": "amount",
+      "level": "organization",
+      "vendorPath": "attributes.estimatedvalue"
+    },
+    {
+      "type": "string",
+      "path": "closeDate",
+      "level": "organization",
+      "vendorPath": "attributes.estimatedclosedate"
+    },
+    {
+      "type": "string",
+      "path": "createdDate",
+      "level": "organization",
+      "vendorPath": "attributes.createdon"
+    },
+    {
+      "type": "string",
+      "path": "description",
+      "level": "organization",
+      "vendorPath": "attributes.description"
+    },
+    {
+      "type": "string",
+      "path": "id",
+      "level": "organization",
+      "vendorPath": "id",
+      "vendorType": "string",
+      "configuration": [
+        {
+          "type": "passThrough",
+          "properties": {
+            "toVendor": false,
+            "fromVendor": true
+          }
+        }
+      ]
+    },
+    {
+      "type": "string",
+      "path": "name",
+      "level": "organization",
+      "vendorPath": "attributes.name"
+    },
+    {
+      "type": "string",
+      "path": "ownerId",
+      "level": "organization",
+      "vendorPath": "attributes.ownerid"
+    },
+    {
+      "type": "string",
+      "path": "probability",
+      "level": "organization",
+      "vendorPath": "attributes.closeprobability"
+    },
+    {
+      "type": "string",
+      "path": "stageName",
+      "level": "organization",
+      "vendorPath": "attributes.salesstage"
+    }
+  ],
+  "configuration": [
+    {
+      "type": "addToDocumentation"
+    },
+    {
+      "type": "passThrough",
+      "properties": {
+        "fromVendor": false,
+        "toVendor": false
+      }
+    },
+    {
+      "type": "inherit"
+    }
+  ],
+  "script": {
+    "body": "  let moment = require('moment');\nif (!fromVendor) {\n  var ut = moment(originalObject.closeDate, 'YYYY.MM.DD').unix().toString();\n  transformedObject.attributes.estimatedclosedate = ut;\n  transformedObject.attributes.salesstage = \"1\";\n}\ndone(transformedObject);",
+    "mimeType": "application/javascript",
+    "filterEmptyResponse": false
+  },
+  "isLegacy": false
+}

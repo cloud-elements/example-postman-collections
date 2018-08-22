@@ -1,0 +1,94 @@
+{
+  "level": "organization",
+  "elementId": 43,
+  "objectName": "myLeads2",
+  "vendorName": "contacts",
+  "startDate": "2018-07-30 21:02:02.381707",
+  "fields": [
+    {
+      "type": "string",
+      "path": "city",
+      "level": "organization",
+      "vendorPath": "properties.city"
+    },
+    {
+      "type": "string",
+      "path": "company",
+      "level": "organization",
+      "vendorPath": "properties.company"
+    },
+    {
+      "type": "string",
+      "path": "country",
+      "level": "organization",
+      "vendorPath": "properties.country"
+    },
+    {
+      "type": "string",
+      "path": "email",
+      "level": "organization",
+      "vendorPath": "properties.email"
+    },
+    {
+      "type": "string",
+      "path": "firstName",
+      "level": "organization",
+      "vendorPath": "properties.firstname"
+    },
+    {
+      "type": "string",
+      "path": "id",
+      "level": "organization",
+      "vendorPath": "raw.vid"
+    },
+    {
+      "type": "string",
+      "path": "lastName",
+      "level": "organization",
+      "vendorPath": "properties.lastname"
+    },
+    {
+      "type": "string",
+      "path": "phone",
+      "level": "organization",
+      "vendorPath": "properties.phone"
+    },
+    {
+      "type": "string",
+      "path": "state",
+      "level": "organization",
+      "vendorPath": "properties.state"
+    },
+    {
+      "type": "string",
+      "path": "street1",
+      "level": "organization",
+      "vendorPath": "properties.address"
+    },
+    {
+      "type": "string",
+      "path": "title",
+      "level": "organization",
+      "vendorPath": "properties.jobtitle"
+    },
+    {
+      "type": "string",
+      "path": "zip",
+      "level": "organization",
+      "vendorPath": "properties.zip"
+    }
+  ],
+  "configuration": [
+    {
+      "type": "passThrough",
+      "properties": {
+        "fromVendor": false,
+        "toVendor": false
+      }
+    },
+    {
+      "type": "inherit"
+    }
+  ],
+  "isLegacy": false
+}

@@ -1,0 +1,95 @@
+{
+  "level": "organization",
+  "elementId": 234,
+  "objectName": "myOpportunities2",
+  "vendorName": "opportunities",
+  "startDate": "2018-08-10 20:06:18.194642",
+  "fields": [
+    {
+      "type": "string",
+      "path": "accountId",
+      "level": "organization",
+      "vendorPath": "account_id"
+    },
+    {
+      "type": "string",
+      "path": "amount",
+      "level": "organization",
+      "vendorPath": "amount"
+    },
+    {
+      "type": "string",
+      "path": "closeDate",
+      "level": "organization",
+      "vendorPath": "date_closed"
+    },
+    {
+      "type": "string",
+      "path": "description",
+      "level": "organization",
+      "vendorPath": "description"
+    },
+    {
+      "type": "string",
+      "path": "id",
+      "level": "organization",
+      "vendorPath": "id",
+      "vendorType": "string",
+      "configuration": [
+        {
+          "type": "passThrough",
+          "properties": {
+            "toVendor": false,
+            "fromVendor": true
+          }
+        }
+      ]
+    },
+    {
+      "type": "string",
+      "path": "name",
+      "level": "organization",
+      "vendorPath": "name"
+    },
+    {
+      "type": "string",
+      "path": "ownerId",
+      "level": "organization",
+      "vendorPath": "modified_user_id"
+    },
+    {
+      "type": "string",
+      "path": "probability",
+      "level": "organization",
+      "vendorPath": "probability"
+    },
+    {
+      "type": "string",
+      "path": "stageName",
+      "level": "organization",
+      "vendorPath": "sales_stage"
+    },
+    {
+      "type": "string",
+      "path": "type",
+      "level": "organization",
+      "vendorPath": "opportunity_type"
+    }
+  ],
+  "configuration": [
+    {
+      "type": "addToDocumentation"
+    },
+    {
+      "type": "passThrough",
+      "properties": {
+        "fromVendor": false,
+        "toVendor": false
+      }
+    },
+    {
+      "type": "inherit"
+    }
+  ],
+  "isLegacy": false
+}

@@ -1,0 +1,44 @@
+{
+  "level": "organization",
+  "elementId": 234,
+  "objectName": "myUsers",
+  "vendorName": "users",
+  "startDate": "2018-08-10 20:20:13.507644",
+  "fields": [
+    {
+      "type": "string",
+      "path": "id",
+      "level": "organization",
+      "vendorPath": "id",
+      "vendorType": "string",
+      "configuration": [
+        {
+          "type": "passThrough",
+          "properties": {
+            "toVendor": false,
+            "fromVendor": true
+          }
+        }
+      ]
+    },
+    {
+      "type": "string",
+      "path": "name",
+      "level": "organization",
+      "vendorPath": "name"
+    }
+  ],
+  "configuration": [
+    {
+      "type": "passThrough",
+      "properties": {
+        "fromVendor": false,
+        "toVendor": false
+      }
+    },
+    {
+      "type": "inherit"
+    }
+  ],
+  "isLegacy": false
+}

@@ -1,0 +1,107 @@
+{
+  "level": "organization",
+  "elementId": 88,
+  "objectName": "myLeads2",
+  "vendorName": "leads",
+  "startDate": "2018-08-10 19:50:05.944074",
+  "fields": [
+    {
+      "type": "string",
+      "path": "city",
+      "level": "organization",
+      "vendorPath": "person.city"
+    },
+    {
+      "type": "string",
+      "path": "company",
+      "level": "organization",
+      "vendorPath": "person.company"
+    },
+    {
+      "type": "string",
+      "path": "country",
+      "level": "organization",
+      "vendorPath": "person.country"
+    },
+    {
+      "type": "string",
+      "path": "email",
+      "level": "organization",
+      "vendorPath": "person.email"
+    },
+    {
+      "type": "string",
+      "path": "firstName",
+      "level": "organization",
+      "vendorPath": "person.firstName"
+    },
+    {
+      "type": "string",
+      "path": "id",
+      "level": "organization",
+      "vendorPath": "person.id",
+      "vendorType": "string",
+      "configuration": [
+        {
+          "type": "passThrough",
+          "properties": {
+            "toVendor": false,
+            "fromVendor": true
+          }
+        }
+      ]
+    },
+    {
+      "type": "string",
+      "path": "lastName",
+      "level": "organization",
+      "vendorPath": "person.lastName"
+    },
+    {
+      "type": "string",
+      "path": "phone",
+      "level": "organization",
+      "vendorPath": "person.phone"
+    },
+    {
+      "type": "string",
+      "path": "state",
+      "level": "organization",
+      "vendorPath": "person.state"
+    },
+    {
+      "type": "string",
+      "path": "street1",
+      "level": "organization",
+      "vendorPath": "person.address"
+    },
+    {
+      "type": "string",
+      "path": "title",
+      "level": "organization",
+      "vendorPath": "person.title"
+    },
+    {
+      "type": "string",
+      "path": "zip",
+      "level": "organization",
+      "vendorPath": "person.zip"
+    }
+  ],
+  "configuration": [
+    {
+      "type": "addToDocumentation"
+    },
+    {
+      "type": "passThrough",
+      "properties": {
+        "fromVendor": false,
+        "toVendor": false
+      }
+    },
+    {
+      "type": "inherit"
+    }
+  ],
+  "isLegacy": false
+}
